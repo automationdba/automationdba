@@ -1,1 +1,1 @@
-web: gunicorn django_dbawebmenu.wsgi --log-file -
+web: gunicorn automationdba.wsgi --log-file -
