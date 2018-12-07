@@ -1,0 +1,365 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+
+<meta name="generator" content="Oracle Database sqlplus output">
+
+<TITLE> Database Report </TITLE>
+
+<style>
+
+table {
+
+font-family : Century Gothic, Trebuchet MS, verdana, arial, sans-serif;
+
+font-size:14px;
+
+color:#333366;
+
+text-align:auto;
+
+width:auto;
+
+align:auto;
+
+border-width: 1px;
+
+border-color: #a9c6c9;
+
+border-collapse: collapse;
+
+}
+
+table th {
+
+border-width: 1px;
+
+background-color:#d4e3e5;
+
+padding: 8px;
+
+border-style: solid;
+
+border-color: #a9c6c9;
+
+}
+
+table td {
+
+border-width: 1px;
+
+padding: 8px;
+
+border-style: solid;
+
+border-color: #a9c6c9;
+
+}
+
+</style>
+
+</head>
+
+<br>
++--------------------------------------------------------------------------------------+
+<br>
+Report	 : Query Execution History(From 2018-11-15 01:00 to 2018-11-25 23:00)
+<br>
+Option	 : 78thn3afd414y
+<br>
+DB_Name  : ORA12C
+<br>
+Timestamp: 25-NOV-18 22:20
+<br>
++--------------------------------------------------------------------------------------+
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+Inst:
+<br>
+Sid,Serial#
+</th>
+<th scope="col">
+Username
+</th>
+<th scope="col">
+SAMPLE_TIME
+</th>
+<th scope="col">
+EXEC_START
+</th>
+<th scope="col">
+SQL ID
+</th>
+<th scope="col">
+Obj
+<br>
+Name
+</th>
+<th scope="col">
+Hard
+<br>
+Prase
+</th>
+<th scope="col">
+Plan
+<br>
+Option
+</th>
+<th scope="col">
+Sql
+<br>
+Exec_id
+</th>
+<th scope="col">
+Time
+<br>
+Waited
+<br>
+Second
+</th>
+<th scope="col">
+Sess
+<br>
+Stat
+</th>
+<th scope="col">
+Wait Event
+</th>
+<th scope="col">
+Blk
+<br>
+sess
+</th>
+</tr>
+<tr>
+<td>
+1:141,237
+</td>
+<td>
+LOADTEST
+</td>
+<td>
+2018-11-24 10:52
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+78thn3afd414y
+</td>
+<td>
+LOADTEST.SYS_C0011723
+</td>
+<td>
+N
+</td>
+<td>
+&nbsp;
+</td>
+<td align="right">
+&nbsp;
+</td>
+<td>
+0
+</td>
+<td>
+ON CPU
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+:
+</td>
+</tr>
+<tr>
+<td>
+1:57,125
+</td>
+<td>
+LOADTEST
+</td>
+<td>
+2018-11-24 12:29
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+78thn3afd414y
+</td>
+<td>
+LOADTEST.STRESSTESTTAB
+LE
+</td>
+<td>
+N
+</td>
+<td>
+&nbsp;
+</td>
+<td align="right">
+&nbsp;
+</td>
+<td>
+0
+</td>
+<td>
+ON CPU
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+:
+</td>
+</tr>
+<tr>
+<td>
+1:101,211
+</td>
+<td>
+LOADTEST
+</td>
+<td>
+2018-11-24 13:24
+</td>
+<td>
+2018-11-24 13:24
+</td>
+<td>
+78thn3afd414y
+</td>
+<td>
+LOADTEST.SYS_C0011723
+</td>
+<td>
+N
+</td>
+<td>
+UNIQUE SC
+AN
+</td>
+<td align="right">
+ 20849739
+</td>
+<td>
+1
+</td>
+<td>
+WAITING
+</td>
+<td>
+db file sequential
+read
+</td>
+<td>
+:
+</td>
+</tr>
+<tr>
+<td>
+1:57,125
+</td>
+<td>
+LOADTEST
+</td>
+<td>
+2018-11-24 13:25
+</td>
+<td>
+2018-11-24 13:25
+</td>
+<td>
+78thn3afd414y
+</td>
+<td>
+LOADTEST.SYS_C0011723
+</td>
+<td>
+N
+</td>
+<td>
+UNIQUE SC
+AN
+</td>
+<td align="right">
+ 20868911
+</td>
+<td>
+1
+</td>
+<td>
+WAITING
+</td>
+<td>
+db file sequential
+read
+</td>
+<td>
+:
+</td>
+</tr>
+</table>
+<p>
+
++------------------------------------------------------------------------+
+<br>
++-----------Objects involved during execution of query-------------------+
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+OWNER
+</th>
+<th scope="col">
+Obj
+<br>
+Name
+</th>
+<th scope="col">
+OBJ_TYPE
+</th>
+<th scope="col">
+IS_TEMP
+<br>
+Table
+</th>
+</tr>
+<tr>
+<td>
+LOADTEST
+</td>
+<td>
+SYS_C0011723
+</td>
+<td>
+INDEX
+</td>
+<td>
+N
+</td>
+</tr>
+<tr>
+<td>
+LOADTEST
+</td>
+<td>
+STRESSTESTTABLE
+</td>
+<td>
+TABLE
+</td>
+<td>
+N
+</td>
+</tr>
+</table>
+<p>
+

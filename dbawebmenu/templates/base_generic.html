@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  {% block title %}<title> DBA Menu</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="container-fluid">
+
+<div class="row">
+  <div class="col-sm-2">
+  {% block sidebar %}
+  <ul class="sidebar-nav">
+    
+    <br>
+    <li><a href="{% url 'home' %}"> <strong>Home</strong> </a></li>
+    <li><a href="{% url 'dbamenus' %}"> <strong> DBA Menu task</strong> </a></li>
+    <li> <a href="/dbamenu/39"> <strong>Quick SQL Monitor</strong></a>
+    <li><a href="{% url 'loginconsole' %}"> <strong>Login /</strong></a> <a href="{% url 'logout-view' %}">Logout </a></li>
+    <br>
+    <li>Login as : {{ username }}  </li> 
+    <li>connect as : {{ connectdb }}  </li>
+    <li>Ver 1.0</li>
+    <li>Contact: automationdba@gmail.com</li>
+    
+  </ul>
+ 
+ 
+{% endblock %}
+  </div>
+     <div class="col-sm-10 ">
+  {% block content %}{% endblock %}
+  
+  {% block pagination %}
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+  {% endblock %} 
+  
+  
+  </div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Oracle DBA Automation task list</h1>
+
+{% if dbamenu_list %}
+  <ul>
+
+     
+  {% for dbamenu in dbamenu_list %}
+    <div class="col-md-4">
+    <li>
+        
+      <a href="{{ dbamenu.get_absolute_url }}">
+      {{ dbamenu }}
+      </a>
+    </li>
+  </div>
+  {% endfor %}
+
+ </ul>
+{% else %}
+  <p>There are no dbamenu available.</p>
+{% endif %}
+        
+ 
+{% endblock %}

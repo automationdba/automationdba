@@ -1,0 +1,467 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+
+<meta name="generator" content="Oracle Database sqlplus output">
+
+<TITLE> Database Report </TITLE>
+
+<style>
+
+table {
+
+font-family : Century Gothic, Trebuchet MS, verdana, arial, sans-serif;
+
+font-size:14px;
+
+color:#333366;
+
+text-align:auto;
+
+width:auto;
+
+align:auto;
+
+border-width: 1px;
+
+border-color: #a9c6c9;
+
+border-collapse: collapse;
+
+}
+
+table th {
+
+border-width: 1px;
+
+background-color:#d4e3e5;
+
+padding: 8px;
+
+border-style: solid;
+
+border-color: #a9c6c9;
+
+}
+
+table td {
+
+border-width: 1px;
+
+padding: 8px;
+
+border-style: solid;
+
+border-color: #a9c6c9;
+
+}
+
+</style>
+
+</head>
+
+<br>
+
+<br>
++------------------------------------------------------------------------+
+<br>
+| Report   : Blocking/Locks						 |
+<br>
+| DB_Name  : ORA12C							 |
+<br>
+| Timestamp: 24-NOV-18 11.04.53.981					   |
+<br>
++------------------------------------------------------------------------+
+<br>
+
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+CURRENT_TIME
+</th>
+</tr>
+<tr>
+<td>
+24-NOV-18 11.04.53.985000
+ AM +05:30
+</td>
+</tr>
+</table>
+<p>
+
+
+<br>
+
+<br>
++------------------------------------------------------------------------+
+<br>
+| BLOCKING LOCKS (Summary)						 |
+<br>
++------------------------------------------------------------------------+
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+[WAITING]
+<br>
+Instance - SID / Serial#
+</th>
+<th scope="col">
+[WAITING]
+<br>
+Oracle User
+</th>
+<th scope="col">
+[WAITING]
+<br>
+Lock Time
+</th>
+<th scope="col">
+Waiter Lock Type / Mode Requested
+</th>
+<th scope="col">
+[LOCKING]
+<br>
+Instance - SID / Serial#
+</th>
+<th scope="col">
+[LOCKING]
+<br>
+Oracle User
+</th>
+<th scope="col">
+[LOCKING]
+<br>
+Lock Time
+</th>
+</tr>
+<tr>
+<td>
+ora12c - 106 / 50979
+</td>
+<td>
+GITLIBRARY
+</td>
+<td>
+3 min.
+</td>
+<td>
+Transaction / Exclusive
+</td>
+<td>
+ora12c - 58 / 59873
+</td>
+<td>
+SYS
+</td>
+<td>
+3 min.
+</td>
+</tr>
+</table>
+<p>
+
+
+<br>
+
+<br>
++------------------------------------------------------------------------+
+<br>
+| BLOCKING LOCKS (User Details) 					 |
+<br>
++------------------------------------------------------------------------+
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+[WAITING]
+<br>
+Instance - SID / Serial#
+</th>
+<th scope="col">
+[WAITING]
+<br>
+Oracle User
+</th>
+<th scope="col">
+[WAITING]
+<br>
+O/S User
+</th>
+<th scope="col">
+[WAITING]
+<br>
+Machine
+</th>
+<th scope="col">
+[WAITING]
+<br>
+PID
+</th>
+<th scope="col">
+[LOCKING]
+<br>
+Instance - SID / Serial#
+</th>
+<th scope="col">
+[LOCKING]
+<br>
+Oracle User
+</th>
+<th scope="col">
+[LOCKING]
+<br>
+O/S User
+</th>
+<th scope="col">
+Locking Machine
+</th>
+<th scope="col">
+[LOCKING]
+<br>
+PID
+</th>
+</tr>
+<tr>
+<td>
+ora12c - 106 / 50979
+</td>
+<td>
+GITLIBRARY
+</td>
+<td>
+AUTOMATION-PC\K
+etan
+</td>
+<td>
+WORKGROUP\AUTOM
+</td>
+<td>
+7420
+</td>
+<td>
+ora12c - 58 / 59873
+</td>
+<td>
+SYS
+</td>
+<td>
+AUTOMATION-PC\K
+etan
+</td>
+<td>
+WORKGROUP\AUTOM
+</td>
+<td>
+7872
+</td>
+</tr>
+</table>
+<p>
+
+
+<br>
+
+<br>
++------------------------------------------------------------------------+
+<br>
+| BLOCKING LOCKS (Waiting SQL)						 |
+<br>
++------------------------------------------------------------------------+
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+[WAITING]
+<br>
+Instance - SID / Serial#
+</th>
+<th scope="col">
+[WAITING]
+<br>
+SQL Text
+</th>
+</tr>
+<tr>
+<td>
+ora12c - 106 / 50979
+</td>
+<td>
+update gitlibrary.catalog_book set title='test title'
+</td>
+</tr>
+</table>
+<p>
+
+
+<br>
+
+<br>
++------------------------------------------------------------------------+
+<br>
+| LOCKED OBJECTS							 |
+<br>
++------------------------------------------------------------------------+
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+Inst
+<br>
+Name
+</th>
+<th scope="col">
+SID
+</th>
+<th scope="col">
+Status
+</th>
+<th scope="col">
+Locking
+<br>
+ Oracle User
+</th>
+<th scope="col">
+Locking
+<br>
+ O/S User
+</th>
+<th scope="col">
+Locking Machine
+</th>
+<th scope="col">
+Locking
+<br>
+PID
+</th>
+<th scope="col">
+Object Owner
+</th>
+<th scope="col">
+Object Name
+</th>
+<th scope="col">
+Object Type
+</th>
+<th scope="col">
+Locked Mode
+</th>
+</tr>
+<tr>
+<td>
+ora12c
+</td>
+<td align="right">
+   57
+</td>
+<td>
+ACTIVE
+</td>
+<td>
+LOADTEST
+</td>
+<td>
+Ketan
+</td>
+<td>
+Automation-PC
+</td>
+<td>
+6300
+</td>
+<td>
+LOADTEST
+</td>
+<td>
+STRESSTESTTABLE
+</td>
+<td>
+TABLE
+</td>
+<td>
+Row-Exclusive (SX)
+</td>
+</tr>
+<tr>
+<td>
+ora12c
+</td>
+<td align="right">
+   58
+</td>
+<td>
+INACTIVE
+</td>
+<td>
+SYS
+</td>
+<td>
+AUTOMATION-PC\K
+etan
+</td>
+<td>
+WORKGROUP\AUTOM
+</td>
+<td>
+7872
+</td>
+<td>
+GITLIBRARY
+</td>
+<td>
+CATALOG_BOOK
+</td>
+<td>
+TABLE
+</td>
+<td>
+Row-Exclusive (SX)
+</td>
+</tr>
+<tr>
+<td>
+ora12c
+</td>
+<td align="right">
+  106
+</td>
+<td>
+ACTIVE
+</td>
+<td>
+GITLIBRARY
+</td>
+<td>
+AUTOMATION-PC\K
+etan
+</td>
+<td>
+WORKGROUP\AUTOM
+</td>
+<td>
+7420
+</td>
+<td>
+GITLIBRARY
+</td>
+<td>
+CATALOG_BOOK
+</td>
+<td>
+TABLE
+</td>
+<td>
+Row-Exclusive (SX)
+</td>
+</tr>
+</table>
+<p>
+

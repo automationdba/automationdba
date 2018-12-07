@@ -1,0 +1,29 @@
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Logfile List</h1>
+
+ 
+<li><strong>Logfile dir name {{logfile_dir_name}}  </strong></li> 
+<br>
+{% if onlylogfiles %}
+  <ul>
+     
+  {% for logfile in onlylogfiles %}
+     <div class="col-md-4"> 
+    <li>
+            <a href="{{logfile_dir_name}}/{{ logfile }}">
+                {{ logfile }}
+            </a>
+    </li>
+  </div>
+  {% endfor %}
+
+ </ul>
+{% else %}
+  <p>There are no logfile available.</p>
+{% endif %}
+
+{% endblock %}

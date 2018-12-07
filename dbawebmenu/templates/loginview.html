@@ -1,0 +1,29 @@
+<html>
+<head>
+      <meta charset="UTF-8">
+      <title>Dbawebmenu - Log-in</title>
+      <!-- <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>  -->
+      <link rel="stylesheet" href="../static/css/style.css" media="screen" type="text/css" />
+      </head>
+<body> 
+      <div class="login-card">
+      <h1> DBA Web Menu Application</h1><br>
+      <form name = "form" action = "{% url "login-view" %}" 
+           method = "POST" >{% csrf_token %}
+            <label>Database tns </label>   
+            <input type = "text" width=30 size=30  placeholder = "db service name " name = "connectdb" />
+            <label>Database Login user id  </label> 
+            <input type = "text" placeholder = "user id" name = "username" width=9 size=9 />
+            <label> Database Login Password   </label> 
+            <input type = "password" placeholder = "password" name = "password" />
+            <input type="submit" name="login" class="login login-submit" value="Login">
+      </h1>
+                    
+      </form>
+      <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>  
+      
+      </div>
+      
+    </body>
+    
+  </html>

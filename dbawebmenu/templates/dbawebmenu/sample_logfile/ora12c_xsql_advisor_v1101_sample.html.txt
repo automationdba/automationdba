@@ -1,0 +1,94 @@
+
+Tune the sql
+~~~~~~~~~~~~
+
+GENERAL INFORMATION SECTION                                                     
+------------------------------------------------------------------------------- 
+Tuning Task Name   : TASK_1167                                                  
+Tuning Task Owner  : LOADTEST                                                   
+Workload Type      : Single SQL Statement                                       
+Scope              : COMPREHENSIVE                                              
+Time Limit(seconds): 1800                                                       
+Completion Status  : COMPLETED                                                  
+Started at         : 11/24/2018 10:40:34                                        
+Completed at       : 11/24/2018 10:40:50                                        
+                                                                                
+------------------------------------------------------------------------------- 
+Schema Name: LOADTEST                                                           
+
+SQL ID     : 78thn3afd414y                                                      
+SQL Text   : update stressTestTable set aint = aint + 1 where id = :1           
+Bind Variables :                                                                
+ 1 -  (NUMBER):2                                                                
+                                                                                
+------------------------------------------------------------------------------- 
+FINDINGS SECTION (2 findings)                                                   
+------------------------------------------------------------------------------- 
+                                                                                
+1- Statistics Finding                                                           
+---------------------                                                           
+  Index "LOADTEST"."SYS_C0011723" was not analyzed.                             
+                                                                                
+
+  Recommendation                                                                
+  --------------                                                                
+  - Consider collecting optimizer statistics for this index.                    
+    execute dbms_stats.gather_index_stats(ownname => 'LOADTEST', indname =>     
+            'SYS_C0011723', estimate_percent => DBMS_STATS.AUTO_SAMPLE_SIZE);   
+                                                                                
+  Rationale                                                                     
+  ---------                                                                     
+    The optimizer requires up-to-date statistics for the index in order to      
+    select a good execution plan.                                               
+                                                                                
+2- Statistics Finding                                                           
+---------------------                                                           
+
+  Table "LOADTEST"."STRESSTESTTABLE" was not analyzed.                          
+                                                                                
+  Recommendation                                                                
+  --------------                                                                
+  - Consider collecting optimizer statistics for this table.                    
+    execute dbms_stats.gather_table_stats(ownname => 'LOADTEST', tabname =>     
+            'STRESSTESTTABLE', estimate_percent =>                              
+            DBMS_STATS.AUTO_SAMPLE_SIZE, method_opt => 'FOR ALL COLUMNS SIZE    
+            AUTO');                                                             
+                                                                                
+  Rationale                                                                     
+  ---------                                                                     
+    The optimizer requires up-to-date statistics for the table in order to      
+
+    select a good execution plan.                                               
+                                                                                
+------------------------------------------------------------------------------- 
+EXPLAIN PLANS SECTION                                                           
+------------------------------------------------------------------------------- 
+                                                                                
+1- Original                                                                     
+-----------                                                                     
+Plan hash value: 2788586072                                                     
+                                                                                
+--------------------------------------------------------------------------------
+------                                                                          
+| Id  | Operation          | Name            | Rows  | Bytes | Cost (%CPU)| Time
+
+     |                                                                          
+--------------------------------------------------------------------------------
+------                                                                          
+|   0 | UPDATE STATEMENT   |                 |     1 |    26 |     1   (0)| 00:0
+0:01 |                                                                          
+|   1 |  UPDATE            | STRESSTESTTABLE |       |       |            |     
+     |                                                                          
+|*  2 |   INDEX UNIQUE SCAN| SYS_C0011723    |     1 |    26 |     1   (0)| 00:0
+0:01 |                                                                          
+--------------------------------------------------------------------------------
+------                                                                          
+                                                                                
+Predicate Information (identified by operation id):                             
+
+---------------------------------------------------                             
+                                                                                
+   2 - access("ID"=:1)                                                          
+                                                                                
+------------------------------------------------------------------------------- 
+                                                                                

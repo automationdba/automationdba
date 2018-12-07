@@ -1,0 +1,14 @@
+<html>
+   <body>
+        <form name = "form" action = "" 
+        method = "POST" >
+        {% csrf_token %}
+      <a><strong> Message !! : {{message}}</strong></a> <br>
+      <a href="{% url 'loginconsole' %}"> <strong>Login Again ?</strong> </a>  
+      <br> or 
+      <a href="{% url 'home' %}"> <strong>Home Page Again ?</strong> </a> 
+       </form>
+   </body>
+   
+</html>
+

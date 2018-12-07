@@ -1,0 +1,61 @@
+{% extends "base_generic.html" %}  
+{% block content %}
+<h1>DBA Web Menu Application Home</h1>
+
+<div>
+    &nbsp;I would like to start with my favorite quote from Bill Gates.<br />
+    <blockquote class="tr_bq">
+    &#8220;I choose a lazy person to do a hard job. Because a lazy person will find an easy way to do it.&#8221; -Bill Gates<br />
+    And I say: I choose a lazy person to do a hard job because a lazy person will automate it.&nbsp;</blockquote>
+</div>
+    
+<p>Welcome to <em>Database User Interactive Menu</em>, this is a collection of Oracle database routine operational tasks. Source code can be downloaded from <strong>https://github.com/automationdba/automationdba.git </strong><br>This application is quite useful 
+    for Oracle Production DBA during troubleshoot any database related issues. 
+    This Apps mainly design for <strong>Oracle RAC/Cluster </strong> databases. However, this is compatible for non-RAC/stand-alone Oracle databases too. 
+   
+   <br><br>My main objective is to help other DBA by sharing my expeirence in the area of <strong>Production Oracle DBA</strong>. We mostly perform the same task regularly. 
+    Now a days, every end user expect immedate result/response from Databaes  irrespecitve of data growh or bad application design and hence as a DBA we 
+    have challenge to provide immediate satisfactory workaround to application folks. As everyone knows, Database query tuning is one of the 
+    most challenging task for DBA. Also, Oracle documentaiton have own limitation in this area. Being as Production DBA, applicaiton team expect 
+    to provide solution of "Long running Query" of their routine Batch Job. We hae always challenge for "db contention" in RAC/cluster
+    databases. If applicatoin design flow and db optimization is not as per standard then everyone have to pay the price specially for DBA.
+    Applicaiton db query suddently change from good plan to bad plan. As this kind of task, someitmes we don't have immediate resolution and hence,
+    we need to explore various options/workaround. In such kind of situation, we need to fetch dictionary tables related different views
+    and need to analyze those data and based on that, need to provide solution. This solution not always fix the issues but we need to follow the defined 
+    workaround sequentially. We generally run the database dictionry related query from sqlplus or any other tools like OEM,toad etc.
+    This is our routine activity. In this scenario, I used to go one step ahead  by doing Automation of those tasks. With the 
+    same intention and objective, I have developed a applicaiton as dbawebmenu. This applicaton is collection of various routine 
+    database inbuilt query. All those query is outcome of my experience in this area. 
+    
+    This application is developed in django with integration of python and sql query. We just need to access database remotely and perform various 
+    required task as per requirement. 
+    </p><br>
+    <h4>Some of the key features...  </h4>
+
+    <ul><li> Freeware Oracle database performance monitor application </li></ul>
+    <ul><li> Automation of 50+ database related daily required task</li></ul>
+    <ul><li> Minimal interaction with database</li></ul>
+    <ul><li> Report can be generated parallel</li></ul>
+    <ul><li> History execution already archived</li></ul>
+    <ul><li> Two level of authentcation - application and Database level</li></ul>
+    <ul><li> Enhancement is quite easy </li></ul>
+    <ul><li> Completely secure as Only Database monitoring task includes in this version.</li></ul>
+    <ul><li> No any additional database privileges required </li></ul>
+    <ul><li> Report session self kill if db response takes more time </li></ul>
+    <ul><li> Additional sql_id based monitor menu </li></ul>
+   
+<div>
+{% load static %}
+<img src="{% static 'images/round-table-images.png' %}" alt="My image" style="width:849px;height:565px;"/>
+</div>  
+<p>The Menu has the following task counts:</p>
+<ul>
+<li><strong>Dbamenu:</strong> {{ num_dbamenus }}</li>
+</ul>
+
+You have visited this page {{ num_visits }} times.
+
+You have logged as user <strong> {{ username }} </strong>with initial db connection <strong>  {{connectdb }} </strong>
+Kindly contact <strong>automationdba@gmail.com</strong> for any query related this application. 
+
+{% endblock %}

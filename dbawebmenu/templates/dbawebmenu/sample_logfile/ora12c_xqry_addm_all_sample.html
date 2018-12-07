@@ -1,0 +1,2106 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+
+<meta name="generator" content="Oracle Database sqlplus output">
+
+<TITLE> Database Report </TITLE>
+
+<style>
+
+table {
+
+font-family : Century Gothic, Trebuchet MS, verdana, arial, sans-serif;
+
+font-size:14px;
+
+color:#333366;
+
+text-align:auto;
+
+width:auto;
+
+align:auto;
+
+border-width: 1px;
+
+border-color: #a9c6c9;
+
+border-collapse: collapse;
+
+}
+
+table th {
+
+border-width: 1px;
+
+background-color:#d4e3e5;
+
+padding: 8px;
+
+border-style: solid;
+
+border-color: #a9c6c9;
+
+}
+
+table td {
+
+border-width: 1px;
+
+padding: 8px;
+
+border-style: solid;
+
+border-color: #a9c6c9;
+
+}
+
+</style>
+
+</head>
+
+<br>
++--------------------------------------------------------------------------------------+
+<br>
+Report	 : ADDM Diagnostic Report as on 25-NOV-18 11.55.17.331
+<br>
+Duration : Between 2018-11-17 01:00 and 2018-11-25 05:00
+<br>
+DB_Name  : ORA12C
+<br>
+Timestamp: 25-NOV-18 11.55.17.331
+<br>
++--------------------------------------------------------------------------------------+
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+EXECUTION_END
+</th>
+<th scope="col">
+TYPE
+</th>
+<th scope="col">
+RANK
+</th>
+<th scope="col">
+TYPE
+</th>
+<th scope="col">
+MESSAGE
+</th>
+<th scope="col">
+COMMAND
+</th>
+<th scope="col">
+ACTION_MESSAGE
+</th>
+</tr>
+<tr>
+<td>
+18-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Hard parsing SQL statements that encountered parse errors was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate application logic to eliminate parse errors.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : PL/SQL compilation consumed significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the appropriateness of PL/SQL compilation. PL/SQL compilation can be caused by DDL on dependent objects.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : SQL statements with the same text were not shared because of cursor environment mismatch. This resulted in additional hard parses which were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Look for top reason for cursor environment mismatch in V$SQL_SHARED_CURSOR.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Soft parsing of SQL statements was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate application logic to keep open the frequently used cursors. Note that cursors are closed by both cursor close calls and session disconnects.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Wait event &quot;SQL*Net break/reset to client&quot; in wait class &quot;Application&quot; was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the cause for high &quot;SQL*Net break/reset to client&quot; waits. Refer to Oracle's &quot;Database Reference&quot; for the description of this wait event.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Wait event &quot;kksfbc child completion&quot; in wait class &quot;Other&quot; was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the cause for high &quot;kksfbc child completion&quot; waits in Module &quot;JDBC Thin Client&quot;.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Wait event &quot;kksfbc child completion&quot; in wait class &quot;Other&quot; was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the cause for high &quot;kksfbc child completion&quot; waits in Service &quot;SYS$USERS&quot;.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Wait event &quot;kksfbc child completion&quot; in wait class &quot;Other&quot; was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the cause for high &quot;kksfbc child completion&quot; waits. Refer to Oracle's &quot;Database Reference&quot; for the description of this wait event.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Wait event &quot;kksfbc child completion&quot; in wait class &quot;Other&quot; was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Look at the &quot;Top SQL Statements&quot; finding for SQL statements consuming significant time on the &quot;kksfbc child completion&quot; wait event. For example, the PL/SQL statement with SQL_ID &quot;1
+47a57cxq3w5y&quot; is responsible for 100% of these waits.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the PL/SQL statement with SQL_ID &quot;147a57cxq3w5y&quot; for possible performance improvements. You can supplement the information given here with an ASH report for this SQL_ID
+.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : Soft parsing of SQL statements was consuming significant database time.
+</td>
+<td>
+Command To correct: ALTER PARAMETER
+</td>
+<td>
+Action Message	  : Consider increasing the session cursor cache size by increasing the value of parameter &quot;session_cached_cursors&quot;.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 0
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : The SGA was inadequately sized, causing additional I/O or hard parses.
+</td>
+<td>
+Command To correct: ALTER PARAMETER
+</td>
+<td>
+Action Message	  : Increase the size of the SGA by setting the parameter &quot;sga_target&quot; to 2060 M.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 0
+</td>
+<td>
+Segment Tuning
+</td>
+<td>
+Message 	  : Individual database segments responsible for significant &quot;User I/O&quot; and &quot;Cluster&quot; waits were found.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate application logic involving I/O on database object with ID 513.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 0
+</td>
+<td>
+Segment Tuning
+</td>
+<td>
+Message 	  : Individual database segments responsible for significant &quot;User I/O&quot; and &quot;Cluster&quot; waits were found.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Look at the &quot;Top SQL Statements&quot; finding for SQL statements consuming significant I/O on this segment. For example, the INSERT statement with SQL_ID &quot;048pdpm2fx7gu&quot; is responsible
+for 100% of &quot;User I/O&quot; and &quot;Cluster&quot; waits for this segment.
+</td>
+</tr>
+<tr>
+<th scope="col">
+EXECUTION_END
+</th>
+<th scope="col">
+TYPE
+</th>
+<th scope="col">
+RANK
+</th>
+<th scope="col">
+TYPE
+</th>
+<th scope="col">
+MESSAGE
+</th>
+<th scope="col">
+COMMAND
+</th>
+<th scope="col">
+ACTION_MESSAGE
+</th>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Session connect and disconnect calls were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate application logic for possible reduction of connect and disconnect calls. For example, you might use a connection pool scheme in the middle tier.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Wait event &quot;Disk file operations I/O&quot; in wait class &quot;User I/O&quot; was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the cause for high &quot;Disk file operations I/O&quot; waits in Module &quot;SQL*Plus&quot;.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Wait event &quot;Disk file operations I/O&quot; in wait class &quot;User I/O&quot; was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the cause for high &quot;Disk file operations I/O&quot; waits in Service &quot;ORA12C&quot;.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Wait event &quot;Disk file operations I/O&quot; in wait class &quot;User I/O&quot; was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the cause for high &quot;Disk file operations I/O&quot; waits. Refer to Oracle's &quot;Database Reference&quot; for the description of this wait event.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : Buffer cache writes due to small log files were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Increase the size of the log files to 562 M to hold at least 20 minutes of redo information.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Host Configuration
+</td>
+<td>
+Message 	  : The throughput of the I/O subsystem was significantly lower than expected.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Consider increasing the throughput of the I/O subsystem. Oracle's recommended solution is to stripe all data files using the SAME methodology. You might also need to increase the n
+umber of disks for better performance.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : PL/SQL execution consumed significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Tune the entry point PL/SQL &quot;SYS.DBMS_RANDOM.VALUE#2&quot; of type &quot;PACKAGE&quot; and ID 11395. Refer to the PL/SQL documentation for addition information.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: RUN SQL TUNING ADVISOR
+</td>
+<td>
+Action Message	  : Run SQL Tuning Advisor on the INSERT statement with SQL_ID &quot;4u03q4027rymd&quot;.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : Log file switch operations were consuming significant database time while waiting for checkpoint completion.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Verify whether incremental shipping was used for standby databases.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the INSERT statement with SQL_ID &quot;048pdpm2fx7gu&quot; for possible performance improvements. You can supplement the information given here with an ASH report for this SQL_ID
+.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 3
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : Log file switch operations were consuming significant database time while waiting for checkpoint completion.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Increase the size of the log files to 562 M to hold at least 20 minutes of redo information.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 3
+</td>
+<td>
+Host Configuration
+</td>
+<td>
+Message 	  : The throughput of the I/O subsystem was significantly lower than expected.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : The performance of some data and temp files was significantly worse than others. If striping all files using the SAME methodology is not possible, consider striping these file over
+ multiple disks.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 14:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 0
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : The SGA was inadequately sized, causing additional I/O or hard parses.
+</td>
+<td>
+Command To correct: ALTER PARAMETER
+</td>
+<td>
+Action Message	  : Increase the size of the SGA by setting the parameter &quot;sga_target&quot; to 2060 M.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 14:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 0
+</td>
+<td>
+Segment Tuning
+</td>
+<td>
+Message 	  : Individual database segments responsible for significant &quot;User I/O&quot; and &quot;Cluster&quot; waits were found.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate application logic involving I/O on database object with ID 513.
+</td>
+</tr>
+<tr>
+<th scope="col">
+EXECUTION_END
+</th>
+<th scope="col">
+TYPE
+</th>
+<th scope="col">
+RANK
+</th>
+<th scope="col">
+TYPE
+</th>
+<th scope="col">
+MESSAGE
+</th>
+<th scope="col">
+COMMAND
+</th>
+<th scope="col">
+ACTION_MESSAGE
+</th>
+</tr>
+<tr>
+<td>
+18-NOV-18 14:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 0
+</td>
+<td>
+Segment Tuning
+</td>
+<td>
+Message 	  : Individual database segments responsible for significant &quot;User I/O&quot; and &quot;Cluster&quot; waits were found.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Look at the &quot;Top SQL Statements&quot; finding for SQL statements consuming significant I/O on this segment. For example, the INSERT statement with SQL_ID &quot;048pdpm2fx7gu&quot; is responsible
+for 100% of &quot;User I/O&quot; and &quot;Cluster&quot; waits for this segment.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 14:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Hard parsing SQL statements that encountered parse errors was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate application logic to eliminate parse errors.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 14:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Time spent on the CPU by the instance was responsible for a substantial part of database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Look at the &quot;Top SQL Statements&quot; finding for SQL statements consuming significant time on CPU. For example, the INSERT statement with SQL_ID &quot;4u03q4027rymd&quot; is responsible for 38%
+of CPU usage during the analysis period.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 14:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Time spent on the CPU by the instance was responsible for a substantial part of database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Parsing SQL statements were consuming significant CPU. Please refer to other findings in this task about parsing for further details.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 14:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : PL/SQL execution consumed significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Tune the entry point PL/SQL &quot;SYS.DBMS_RANDOM.VALUE#2&quot; of type &quot;PACKAGE&quot; and ID 11395. Refer to the PL/SQL documentation for addition information.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 14:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: RUN SQL TUNING ADVISOR
+</td>
+<td>
+Action Message	  : Run SQL Tuning Advisor on the INSERT statement with SQL_ID &quot;4u03q4027rymd&quot;.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 14:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the INSERT statement with SQL_ID &quot;048pdpm2fx7gu&quot; for possible performance improvements. You can supplement the information given here with an ASH report for this SQL_ID
+.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 14:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 3
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: RUN SQL TUNING ADVISOR
+</td>
+<td>
+Action Message	  : Run SQL Tuning Advisor on the SELECT statement with SQL_ID &quot;d7p2m03btyf4h&quot;.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 19:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 0
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : The SGA was inadequately sized, causing additional I/O or hard parses.
+</td>
+<td>
+Command To correct: ALTER PARAMETER
+</td>
+<td>
+Action Message	  : Increase the size of the SGA by setting the parameter &quot;sga_target&quot; to 2060 M.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 19:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Wait event &quot;Disk file operations I/O&quot; in wait class &quot;User I/O&quot; was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the cause for high &quot;Disk file operations I/O&quot; waits in Module &quot;SQL*Plus&quot;.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 19:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Wait event &quot;Disk file operations I/O&quot; in wait class &quot;User I/O&quot; was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the cause for high &quot;Disk file operations I/O&quot; waits in Service &quot;ORA12C&quot;.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 19:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Wait event &quot;Disk file operations I/O&quot; in wait class &quot;User I/O&quot; was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the cause for high &quot;Disk file operations I/O&quot; waits with P1,P2,P3 (&quot;FileOperation, fileno, filetype&quot;) values &quot;5&quot;, &quot;0&quot; and &quot;2&quot; respectively.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 19:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Wait event &quot;Disk file operations I/O&quot; in wait class &quot;User I/O&quot; was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the cause for high &quot;Disk file operations I/O&quot; waits. Refer to Oracle's &quot;Database Reference&quot; for the description of this wait event.
+</td>
+</tr>
+<tr>
+<td>
+18-NOV-18 19:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Wait event &quot;rdbms ipc reply&quot; in wait class &quot;Other&quot; was consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the cause for high &quot;rdbms ipc reply&quot; waits. Refer to Oracle's &quot;Database Reference&quot; for the description of this wait event.
+</td>
+</tr>
+<tr>
+<th scope="col">
+EXECUTION_END
+</th>
+<th scope="col">
+TYPE
+</th>
+<th scope="col">
+RANK
+</th>
+<th scope="col">
+TYPE
+</th>
+<th scope="col">
+MESSAGE
+</th>
+<th scope="col">
+COMMAND
+</th>
+<th scope="col">
+ACTION_MESSAGE
+</th>
+</tr>
+<tr>
+<td>
+18-NOV-18 19:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: RUN SQL TUNING ADVISOR
+</td>
+<td>
+Action Message	  : Run SQL Tuning Advisor on the SELECT statement with SQL_ID &quot;5ysvn09c48krm&quot;.
+</td>
+</tr>
+<tr>
+<td>
+19-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 0
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : The SGA was inadequately sized, causing additional I/O or hard parses.
+</td>
+<td>
+Command To correct: ALTER PARAMETER
+</td>
+<td>
+Action Message	  : Increase the size of the SGA by setting the parameter &quot;sga_target&quot; to 2060 M.
+</td>
+</tr>
+<tr>
+<td>
+19-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 0
+</td>
+<td>
+Segment Tuning
+</td>
+<td>
+Message 	  : Individual database segments responsible for significant &quot;User I/O&quot; and &quot;Cluster&quot; waits were found.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate application logic involving I/O on TABLE &quot;LOADTEST.SCALE_DATA&quot; with object ID 86397.
+</td>
+</tr>
+<tr>
+<td>
+19-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 0
+</td>
+<td>
+Segment Tuning
+</td>
+<td>
+Message 	  : Individual database segments responsible for significant &quot;User I/O&quot; and &quot;Cluster&quot; waits were found.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Look at the &quot;Top SQL Statements&quot; finding for SQL statements consuming significant I/O on this segment. For example, the INSERT statement with SQL_ID &quot;4u03q4027rymd&quot; is responsible
+for 100% of &quot;User I/O&quot; and &quot;Cluster&quot; waits for this segment.
+</td>
+</tr>
+<tr>
+<td>
+19-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : PL/SQL execution consumed significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Tune the entry point PL/SQL &quot;SYS.DBMS_RANDOM.VALUE#2&quot; of type &quot;PACKAGE&quot; and ID 11395. Refer to the PL/SQL documentation for addition information.
+</td>
+</tr>
+<tr>
+<td>
+19-NOV-18 09:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: RUN SQL TUNING ADVISOR
+</td>
+<td>
+Action Message	  : Run SQL Tuning Advisor on the INSERT statement with SQL_ID &quot;4u03q4027rymd&quot;.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 09:31
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Waits on event &quot;log file sync&quot; while performing COMMIT and ROLLBACK operations were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate application logic for possible reduction in the number of COMMIT operations by increasing the size of transactions.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 09:31
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : Log file switch operations were consuming significant database time while waiting for checkpoint completion.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Verify whether incremental shipping was used for standby databases.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 09:31
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Host Configuration
+</td>
+<td>
+Message 	  : Waits on event &quot;log file sync&quot; while performing COMMIT and ROLLBACK operations were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the possibility of improving the performance of I/O to the online redo log files.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 09:31
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 3
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : Log file switch operations were consuming significant database time while waiting for checkpoint completion.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Increase the size of the log files to 68 M to hold at least 20 minutes of redo information.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 10:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the INSERT statement with SQL_ID &quot;2pb2tzp63af86&quot; for possible performance improvements. You can supplement the information given here with an ASH report for this SQL_ID
+.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 10:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Waits on event &quot;log file sync&quot; while performing COMMIT and ROLLBACK operations were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate application logic for possible reduction in the number of COMMIT operations by increasing the size of transactions.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 10:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : Log file switch operations were consuming significant database time while waiting for checkpoint completion.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Verify whether incremental shipping was used for standby databases.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 10:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Host Configuration
+</td>
+<td>
+Message 	  : Waits on event &quot;log file sync&quot; while performing COMMIT and ROLLBACK operations were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the possibility of improving the performance of I/O to the online redo log files.
+</td>
+</tr>
+<tr>
+<th scope="col">
+EXECUTION_END
+</th>
+<th scope="col">
+TYPE
+</th>
+<th scope="col">
+RANK
+</th>
+<th scope="col">
+TYPE
+</th>
+<th scope="col">
+MESSAGE
+</th>
+<th scope="col">
+COMMAND
+</th>
+<th scope="col">
+ACTION_MESSAGE
+</th>
+</tr>
+<tr>
+<td>
+23-NOV-18 10:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 3
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : Log file switch operations were consuming significant database time while waiting for checkpoint completion.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Increase the size of the log files to 360 M to hold at least 20 minutes of redo information.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: RUN SQL TUNING ADVISOR
+</td>
+<td>
+Action Message	  : Run SQL Tuning Advisor on the UPDATE statement with SQL_ID &quot;78thn3afd414y&quot;. Additionally, investigate this statement for possible performance improvements. You can supplement the i
+nformation given here with an ASH report for this SQL_ID.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Waits on event &quot;log file sync&quot; while performing COMMIT and ROLLBACK operations were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate application logic for possible reduction in the number of COMMIT operations by increasing the size of transactions.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : Archiver processes were unable to keep up with redo generation.
+</td>
+<td>
+Command To correct: ALTER PARAMETER
+</td>
+<td>
+Action Message	  : Consider adding more archiver processes by setting the value of parameter &quot;log_archive_max_processes&quot;.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Host Configuration
+</td>
+<td>
+Message 	  : Archiver processes were unable to keep up with redo generation.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the file I/O throughput of the archiver process(es) to make sure it is appropriate for the underlying hardware.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Host Configuration
+</td>
+<td>
+Message 	  : Waits on event &quot;log file sync&quot; while performing COMMIT and ROLLBACK operations were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the possibility of improving the performance of I/O to the online redo log files.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: RUN SQL TUNING ADVISOR
+</td>
+<td>
+Action Message	  : Run SQL Tuning Advisor on the INSERT statement with SQL_ID &quot;2pb2tzp63af86&quot;.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 13:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 3
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: RUN SQL TUNING ADVISOR
+</td>
+<td>
+Action Message	  : Run SQL Tuning Advisor on the DELETE statement with SQL_ID &quot;1rr5wb4rg3qn5&quot;. Additionally, investigate this statement for possible performance improvements. You can supplement the i
+nformation given here with an ASH report for this SQL_ID.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 14:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: RUN SQL TUNING ADVISOR
+</td>
+<td>
+Action Message	  : Run SQL Tuning Advisor on the INSERT statement with SQL_ID &quot;2pb2tzp63af86&quot;.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 14:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Waits on event &quot;log file sync&quot; while performing COMMIT and ROLLBACK operations were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate application logic for possible reduction in the number of COMMIT operations by increasing the size of transactions.
+</td>
+</tr>
+<tr>
+<td>
+23-NOV-18 14:30
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Host Configuration
+</td>
+<td>
+Message 	  : Waits on event &quot;log file sync&quot; while performing COMMIT and ROLLBACK operations were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the possibility of improving the performance of I/O to the online redo log files.
+</td>
+</tr>
+<tr>
+<td>
+24-NOV-18 11:31
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : SQL statements were found waiting for row lock waits.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Significant row contention was detected in the TABLE &quot;GITLIBRARY.CATALOG_BOOK&quot; with object ID 85648. Trace the cause of row contention in the application logic using the given bloc
+ked SQL.
+</td>
+</tr>
+<tr>
+<td>
+24-NOV-18 11:31
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the UPDATE statement with SQL_ID &quot;bfk9mcau2f79h&quot; for possible performance improvements. You can supplement the information given here with an ASH report for this SQL_ID
+.
+</td>
+</tr>
+<tr>
+<td>
+24-NOV-18 11:31
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Waits on event &quot;log file sync&quot; while performing COMMIT and ROLLBACK operations were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate application logic for possible reduction in the number of COMMIT operations by increasing the size of transactions.
+</td>
+</tr>
+<tr>
+<th scope="col">
+EXECUTION_END
+</th>
+<th scope="col">
+TYPE
+</th>
+<th scope="col">
+RANK
+</th>
+<th scope="col">
+TYPE
+</th>
+<th scope="col">
+MESSAGE
+</th>
+<th scope="col">
+COMMAND
+</th>
+<th scope="col">
+ACTION_MESSAGE
+</th>
+</tr>
+<tr>
+<td>
+24-NOV-18 11:31
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Host Configuration
+</td>
+<td>
+Message 	  : Waits on event &quot;log file sync&quot; while performing COMMIT and ROLLBACK operations were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the possibility of improving the performance of I/O to the online redo log files.
+</td>
+</tr>
+<tr>
+<td>
+24-NOV-18 12:32
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : SQL statements were found waiting for row lock waits.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Significant row contention was detected in the TABLE &quot;GITLIBRARY.CATALOG_BOOK&quot; with object ID 85648. Trace the cause of row contention in the application logic using the given bloc
+ked SQL.
+</td>
+</tr>
+<tr>
+<td>
+24-NOV-18 12:32
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the UPDATE statement with SQL_ID &quot;bfk9mcau2f79h&quot; for possible performance improvements. You can supplement the information given here with an ASH report for this SQL_ID
+.
+</td>
+</tr>
+<tr>
+<td>
+24-NOV-18 12:32
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Waits on event &quot;log file sync&quot; while performing COMMIT and ROLLBACK operations were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate application logic for possible reduction in the number of COMMIT operations by increasing the size of transactions.
+</td>
+</tr>
+<tr>
+<td>
+24-NOV-18 12:32
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : Log file switch operations were consuming significant database time while waiting for checkpoint completion.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Verify whether incremental shipping was used for standby databases.
+</td>
+</tr>
+<tr>
+<td>
+24-NOV-18 12:32
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Host Configuration
+</td>
+<td>
+Message 	  : Waits on event &quot;log file sync&quot; while performing COMMIT and ROLLBACK operations were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the possibility of improving the performance of I/O to the online redo log files.
+</td>
+</tr>
+<tr>
+<td>
+24-NOV-18 12:32
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 3
+</td>
+<td>
+DB Configuration
+</td>
+<td>
+Message 	  : Log file switch operations were consuming significant database time while waiting for checkpoint completion.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Increase the size of the log files to 621 M to hold at least 20 minutes of redo information.
+</td>
+</tr>
+<tr>
+<td>
+24-NOV-18 13:32
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : SQL statements were found waiting for row lock waits.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Significant row contention was detected in the TABLE &quot;GITLIBRARY.CATALOG_BOOK&quot; with object ID 85648. Trace the cause of row contention in the application logic using the given bloc
+ked SQL.
+</td>
+</tr>
+<tr>
+<td>
+24-NOV-18 13:32
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 1
+</td>
+<td>
+SQL Tuning
+</td>
+<td>
+Message 	  : SQL statements consuming significant database time were found. These statements offer a good opportunity for performance improvement.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the UPDATE statement with SQL_ID &quot;bfk9mcau2f79h&quot; for possible performance improvements. You can supplement the information given here with an ASH report for this SQL_ID
+.
+</td>
+</tr>
+<tr>
+<td>
+24-NOV-18 13:32
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Application Analysis
+</td>
+<td>
+Message 	  : Waits on event &quot;log file sync&quot; while performing COMMIT and ROLLBACK operations were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate application logic for possible reduction in the number of COMMIT operations by increasing the size of transactions.
+</td>
+</tr>
+<tr>
+<td>
+24-NOV-18 13:32
+</td>
+<td>
+PROBLEM
+</td>
+<td align="right">
+	 2
+</td>
+<td>
+Host Configuration
+</td>
+<td>
+Message 	  : Waits on event &quot;log file sync&quot; while performing COMMIT and ROLLBACK operations were consuming significant database time.
+</td>
+<td>
+Command To correct: UNDEFINED
+</td>
+<td>
+Action Message	  : Investigate the possibility of improving the performance of I/O to the online redo log files.
+</td>
+</tr>
+</table>
+<p>
+
+81 rows selected.<br>
+<br>
+
+
