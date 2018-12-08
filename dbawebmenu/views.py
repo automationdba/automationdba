@@ -62,83 +62,83 @@ def Dbamenuviewsample(request):
     elif  "2" in request.GET:
         return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile/ora12c_xsid_rac_sample.html')
     elif  "3" in request.GET:
-        return render(request, settings.BASE_DIR + '//dbawebmenu//templates//dbawebmenu//sample_logfile//ora12c_xsql_id_details_sample.html')	
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xsql_id_details_sample.html')	
     elif  "4" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xlong_qry_tune_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xlong_qry_tune_sample.html')
     elif  "5" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xsql_advisor_v1101_sample.html.txt', content_type="text")
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xsql_advisor_v1101_sample.html.txt', content_type="text")
     elif  "6" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xsql_full_text_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xsql_full_text_sample.html')
     elif  "7" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xstale_stat_sqlid_sample.html')	
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xstale_stat_sqlid_sample.html')	
     elif  "8" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xsess_kill_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xsess_kill_sample.html')
     elif  "9" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\\ash_rpt_ora12c_new_ashrpti_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ash_rpt_ora12c_new_ashrpti_sample.html')
     elif  "10" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\\awr_sql_ora12c_k_awrsqrpi_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//awr_sql_ora12c_k_awrsqrpi_sample.html')
     elif  "11" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xplan_change_daily_report_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xplan_change_daily_report_sample.html')
     elif  "12" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xtable_stats_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xtable_stats_sample.html')
     elif  "13" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xsystemevent_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xsystemevent_sample.html')
     elif  "14" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xtop_cpu_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xtop_cpu_sample.html')
     elif  "15" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xblockers_rac_sample.html')        
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xblockers_rac_sample.html')        
     elif  "16" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xlatch_wait_rac_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xlatch_wait_rac_sample.html')
     elif  "17" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xshow_hist_top_io_wait_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xshow_hist_top_io_wait_sample.html')
     elif  "18" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xshow_hist_top_cpu_usage_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xshow_hist_top_cpu_usage_sample.html')
     elif  "19" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xshow_hist_top_obj_wait_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xshow_hist_top_obj_wait_sample.html')
     elif  "20" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xshow_sess_hist_wait_blocked_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xshow_sess_hist_wait_blocked_sample.html')
     elif  "21" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xshow_sess_hist_wait_all_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xshow_sess_hist_wait_all_sample.html')
     elif  "22" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xshow_sess_hist_run_time_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xshow_sess_hist_run_time_sample.html')
     elif  "23" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xshow_qry_sess_run_time_sample.html')  	
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xshow_qry_sess_run_time_sample.html')  	
     elif  "24" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xqry_addm_all_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xqry_addm_all_sample.html')
     elif  "25" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xarch_log_hist_qry_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xarch_log_hist_qry_sample.html')
     elif  "26" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xalert_qry_sample.html')	
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xalert_qry_sample.html')	
     elif  "27" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\\awr_rpt_ora12c_awrrpti_sample.html')	
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//awr_rpt_ora12c_awrrpti_sample.html')	
     elif  "28" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xsortspace_sample.html') 
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xsortspace_sample.html') 
     elif  "29" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xshowsessions_active_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xshowsessions_active_sample.html')
     elif  "30" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xrac_long_run_txn_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xrac_long_run_txn_sample.html')
     elif  "31" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xall_sess_db_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xall_sess_db_sample.html')
     elif  "32" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xlong_open_trans_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xlong_open_trans_sample.html')
     elif  "33" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xtbs_free_autoextend_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xtbs_free_autoextend_sample.html')
     elif  "34" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xtbs_free_autoextend_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xtbs_free_autoextend_sample.html')
     elif  "35" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xundo_details_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xundo_details_sample.html')
     elif  "36" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xasm_diskgroups_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xasm_diskgroups_sample.html')
     elif  "37" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xasm_disks_perf_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xasm_disks_perf_sample.html')
     elif  "38" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xrman_details_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xrman_details_sample.html')
     elif  "39" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xdb_service_all_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xdb_service_all_sample.html')
     elif  "40" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\\all_log_filename_dir.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//all_log_filename_dir.html')
     elif  "99" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xlong_qry_tune_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xlong_qry_tune_sample.html')
 
 
 def db_user_credentials(uname,dbtns):
