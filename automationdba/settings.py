@@ -28,9 +28,7 @@ SECRET_KEY = 'yd2%u(d=5oxopw2$zdsc@lb(fk=ghc#-_be=r&s7o)bgc41l(2'
 #DEBUG = True
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
 
-ALLOWED_HOSTS = ['127.0.0.1','192.168.1.101','.herokuapp.com','localhost']
-#ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com']
-
+ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com','localhost']
 
 # Application definition
 
