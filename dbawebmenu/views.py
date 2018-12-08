@@ -58,11 +58,11 @@ def index0(request):
 
 def Dbamenuviewsample(request):
     if  "1" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xshowsessions_ops_usr_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile/ora12c_xshowsessions_ops_usr_sample.html')
     elif  "2" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xsid_rac_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile/ora12c_xsid_rac_sample.html')
     elif  "3" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xsql_id_details_sample.html')	
+        return render(request, settings.BASE_DIR + '//dbawebmenu//templates//dbawebmenu//sample_logfile//ora12c_xsql_id_details_sample.html')	
     elif  "4" in request.GET:
         return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile\ora12c_xlong_qry_tune_sample.html')
     elif  "5" in request.GET:
