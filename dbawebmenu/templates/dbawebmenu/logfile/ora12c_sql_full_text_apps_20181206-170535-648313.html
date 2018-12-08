@@ -1,0 +1,137 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+
+<meta name="generator" content="Oracle Database sqlplus output">
+
+<TITLE> Database Report </TITLE>
+
+<style>
+
+table {
+
+font-family : Century Gothic, Trebuchet MS, verdana, arial, sans-serif;
+
+font-size:14px;
+
+color:#333366;
+
+text-align:auto;
+
+width:auto;
+
+align:auto;
+
+border-width: 1px;
+
+border-color: #a9c6c9;
+
+border-collapse: collapse;
+
+}
+
+table th {
+
+border-width: 1px;
+
+background-color:#d4e3e5;
+
+padding: 8px;
+
+border-style: solid;
+
+border-color: #a9c6c9;
+
+}
+
+table td {
+
+border-width: 1px;
+
+padding: 8px;
+
+border-style: solid;
+
+border-color: #a9c6c9;
+
+}
+
+</style>
+
+</head>
+
+<br>
++------------------------------------------------------------------------+
+<br>
+| Report   : Query text of sqlid  	5d4rafk6bjkk0						|
+<br>
+| DB_Name  : ORA12C							 |
+<br>
+| Timestamp: 06-DEC-18 05.05.35.746					     |
+<br>
++------------------------------------------------------------------------+
+<br>
+
+<br>
++------------------------------------------+
+<br>
+SQL Text of 5d4rafk6bjkk0 from History
+<br>
++------------------------------------------+
+<br>
+
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+SQL_TEXT
+</th>
+</tr>
+<tr>
+<td>
+SELECT s.inst_id,'('||s.sid||','||s.serial#||')' sess, p.spid,s.username, TO_CHAR(S.LOGON_TIME,'YYYY-MM-DD HH24:MI') connected,subst
+r(s.module,1,22) module, st.value/100 as &quot;CPU sec&quot;,st2.value/100 as &quot;DB sec&quot;,s.blocking_session_status,s.MACHINE,s.sql_id
+
+--,s.WAIT
+_CLASS,s.service_name,'('||BLOCKING_INSTANCE||','||BLOCKING_SESSION||')' blocks
+
+FROM gv$sesstat st, gv$statname sn, gv$session s, g
+v$process p, gv$sesstat st2 ,gv$statname sn2
+
+WHERE sn.name = 'CPU used by this session' -- CPU
+
+AND sn2.name = 'DB time' -- CPU
+
+AN
+D st2.statistic# = sn2.statistic#
+
+and s.inst_id=st.inst_id and p.inst_id=s.inst_id and sn.inst_id=st.inst_id
+
+and s.inst_id=st2.ins
+t_id  and sn2.inst_id=st2.inst_id
+
+AND st.statistic# = sn.statistic#
+
+AND st.sid = s.sid
+
+AND st2.sid = s.sid
+
+AND s.paddr = p.addr
+
+
+and blocking_session_status &lt;&gt; 'NO HOLDER'
+
+--AND s.last_call_et &lt; 1800 -- active within last 1/2 hour
+
+--AND s.logon_time &gt; (SYSDA
+TE - 240/1440) -- sessions logged on within 4 hours
+
+ORDER BY st.value desc
+</td>
+</tr>
+</table>
+<p>
+

@@ -1,0 +1,139 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+
+<meta name="generator" content="Oracle Database sqlplus output">
+
+<TITLE> Database Report </TITLE>
+
+<style>
+
+table {
+
+font-family : Century Gothic, Trebuchet MS, verdana, arial, sans-serif;
+
+font-size:14px;
+
+color:#333366;
+
+text-align:auto;
+
+width:auto;
+
+align:auto;
+
+border-width: 1px;
+
+border-color: #a9c6c9;
+
+border-collapse: collapse;
+
+}
+
+table th {
+
+border-width: 1px;
+
+background-color:#d4e3e5;
+
+padding: 8px;
+
+border-style: solid;
+
+border-color: #a9c6c9;
+
+}
+
+table td {
+
+border-width: 1px;
+
+padding: 8px;
+
+border-style: solid;
+
+border-color: #a9c6c9;
+
+}
+
+</style>
+
+</head>
+
+<br>
++------------------------------------------------------------------------+
+<br>
+| Report   : Query text of sqlid  	b3w1fwa71afkh						|
+<br>
+| DB_Name  : ORA12C							 |
+<br>
+| Timestamp: 06-DEC-18 11.16.53.066					     |
+<br>
++------------------------------------------------------------------------+
+<br>
+
+<br>
++------------------------------------------+
+<br>
+SQL Text of b3w1fwa71afkh from History
+<br>
++------------------------------------------+
+<br>
+
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+SQL_TEXT
+</th>
+</tr>
+<tr>
+<td>
+SELECT s.inst_id||':'||S.SID||','||S.SERIAL# instance, rpad(S.OSUSER,8)||'/'||rpad(S.USERNAME,12) Usr,
+
+       substr(S.STATUS,1,1)
+STAT,
+
+       TO_CHAR(S.LOGON_TIME,'YYYY-MM-DD HH24:MI') connected,
+
+       substr(S.MACHINE,1,20) MACHINE,
+
+       substr(S.MODULE,
+1,24) module,
+
+	substr(AA.NAME,1,15) Command_Type,
+
+	s.sql_id,
+
+	S.state,
+
+	SECONDS_IN_WAIT,
+
+	substr(s.event,1,30) sess_event
+
+  FR
+OM
+
+       GV$SESSION S,
+
+	AUDIT_ACTIONS AA
+
+ WHERE
+
+    S.USER# != 0
+
+   and S.command=AA.ACTION
+
+   and ((to_char(s.sid)='loadtest
+') or (upper(S.OSUSER) like upper('%loadtest%')) or (upper(S.USERNAME) like upper('%loadtest%')) or (upper(S.sql_id) like upper ('lo
+adtest%')) or (upper(s.module) like upper('%loadtest%')))
+
+ ORDER BY 1,4,3
+</td>
+</tr>
+</table>
+<p>
+

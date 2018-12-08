@@ -1,0 +1,272 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+
+<meta name="generator" content="Oracle Database sqlplus output">
+
+<TITLE> Database Report </TITLE>
+
+<style>
+
+table {
+
+font-family : Century Gothic, Trebuchet MS, verdana, arial, sans-serif;
+
+font-size:14px;
+
+color:#333366;
+
+text-align:auto;
+
+width:auto;
+
+align:auto;
+
+border-width: 1px;
+
+border-color: #a9c6c9;
+
+border-collapse: collapse;
+
+}
+
+table th {
+
+border-width: 1px;
+
+background-color:#d4e3e5;
+
+padding: 8px;
+
+border-style: solid;
+
+border-color: #a9c6c9;
+
+}
+
+table td {
+
+border-width: 1px;
+
+padding: 8px;
+
+border-style: solid;
+
+border-color: #a9c6c9;
+
+}
+
+</style>
+
+</head>
+
+Tune the sql
+~~~~~~~~~~~~
+
+GENERAL INFORMATION SECTION
+-------------------------------------------------------------------------------
+Tuning Task Name   : TASK_1585
+Tuning Task Owner  : LOADTEST
+Workload Type      : Single SQL Statement
+Scope              : COMPREHENSIVE
+Time Limit(seconds): 1800
+Completion Status  : COMPLETED
+Started at         : 12/06/2018 16:20:42
+Completed at       : 12/06/2018 16:20:46
+
+-------------------------------------------------------------------------------
+Schema Name: LOADTEST
+
+SQL ID     : 14puzt7db5fz4
+SQL Text   : select  distinct a.inst_id inst,a.sql_id sqlid,a.hash_value
+             hash,a.address addr,c.instance_name inst_name,c.host_name
+             host,c.instance_role inst_role
+             from gv$sql a,gv$session b,gv$instance c
+             where b.inst_id = c.inst_id
+             and a.address = b.sql_address
+             and b.inst_id =          1
+             and b.sid =        142
+             order by a.inst_id
+
+-------------------------------------------------------------------------------
+FINDINGS SECTION (1 finding)
+
+-------------------------------------------------------------------------------
+
+1- SQL Profile Finding (see explain plans section below)
+--------------------------------------------------------
+  A potentially better execution plan was found for this statement.
+
+  Recommendation (estimated benefit<=10%)
+  ---------------------------------------
+  - Consider accepting the recommended SQL profile.
+    execute dbms_sqltune.accept_sql_profile(task_name => 'TASK_1585',
+            task_owner => 'LOADTEST', replace => TRUE);
+
+  Validation results
+
+  ------------------
+  The SQL profile was tested by executing both its plan and the original plan
+  and measuring their respective execution statistics. A plan may have been
+  only partially executed if the other could be run to completion in less time.
+
+                           Original Plan  With SQL Profile  % Improved
+                           -------------  ----------------  ----------
+  Completion Status:            COMPLETE          COMPLETE
+  Elapsed Time (s):              .01697           .017239      -1.58 %
+  CPU Time (s):                 .017187           .015625       9.08 %
+  User I/O Time (s):                  0                 0
+  Buffer Gets:                        0                 0
+  Physical Read Requests:             0                 0
+
+  Physical Write Requests:            0                 0
+  Physical Read Bytes:                0                 0
+  Physical Write Bytes:               0                 0
+  Rows Processed:                     1                 1
+  Fetches:                            1                 1
+  Executions:                         1                 1
+
+  Notes
+  -----
+  1. Statistics for the original plan were averaged over 10 executions.
+  2. Statistics for the SQL profile plan were averaged over 10 executions.
+
+-------------------------------------------------------------------------------
+
+EXPLAIN PLANS SECTION
+-------------------------------------------------------------------------------
+
+1- Original With Adjusted Cost
+------------------------------
+Plan hash value: 1146386268
+
+--------------------------------------------------------------------------------
+-------------------
+| Id  | Operation                     | Name              | Rows  | Bytes | Cost
+ (%CPU)| Time     |
+--------------------------------------------------------------------------------
+-------------------
+
+|   0 | SELECT STATEMENT              |                   |     1 |   101 |
+0   (0)| 00:00:01 |
+|   1 |  SORT UNIQUE                  |                   |     1 |   101 |
+0   (0)| 00:00:01 |
+|*  2 |   HASH JOIN                   |                   |     1 |   101 |
+0   (0)| 00:00:01 |
+|   3 |    NESTED LOOPS               |                   |     1 |    61 |
+0   (0)| 00:00:01 |
+|   4 |     MERGE JOIN CARTESIAN      |                   |     1 |    57 |
+0   (0)| 00:00:01 |
+|   5 |      MERGE JOIN CARTESIAN     |                   |     1 |    49 |
+0   (0)| 00:00:01 |
+|   6 |       MERGE JOIN CARTESIAN    |                   |     1 |    33 |
+
+0   (0)| 00:00:01 |
+|   7 |        MERGE JOIN CARTESIAN   |                   |     1 |    11 |
+0   (0)| 00:00:01 |
+|   8 |         FIXED TABLE FULL      | X$QUIESCE         |     1 |       |
+0   (0)| 00:00:01 |
+|   9 |         BUFFER SORT           |                   |     1 |    11 |
+0   (0)| 00:00:01 |
+|* 10 |          FIXED TABLE FULL     | X$KVIT            |     1 |    11 |
+0   (0)| 00:00:01 |
+|  11 |        BUFFER SORT            |                   |     1 |    22 |
+0   (0)| 00:00:01 |
+|* 12 |         FIXED TABLE FULL      | X$KSUXSINST       |     1 |    22 |
+0   (0)| 00:00:01 |
+
+|  13 |       BUFFER SORT             |                   |     1 |    16 |
+0   (0)| 00:00:01 |
+|* 14 |        FIXED TABLE FIXED INDEX| X$KSUSE (ind:1)   |     1 |    16 |
+0   (0)| 00:00:01 |
+|  15 |      BUFFER SORT              |                   |     1 |     8 |
+0   (0)| 00:00:01 |
+|* 16 |       FIXED TABLE FIXED INDEX | X$KSLWT (ind:1)   |     1 |     8 |
+0   (0)| 00:00:01 |
+|* 17 |     FIXED TABLE FIXED INDEX   | X$KSLED (ind:2)   |     1 |     4 |
+0   (0)| 00:00:01 |
+|  18 |    FIXED TABLE FULL           | X$KGLCURSOR_CHILD |   100 |  4000 |
+0   (0)| 00:00:01 |
+--------------------------------------------------------------------------------
+
+-------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - access("KGLHDPAR"="S"."KSUSESQL")
+  10 - filter("KVITTAG"='kcbwst')
+  12 - filter("KS"."INST_ID"=1)
+  14 - filter("S"."INDX"=142 AND BITAND("S"."KSUSEFLG",1)<>0 AND
+              BITAND("S"."KSSPAFLG",1)<>0 AND "S"."INST_ID"=1)
+  16 - filter("W"."KSLWTSID"=142)
+  17 - filter("W"."KSLWTEVT"="E"."INDX")
+
+
+2- Using SQL Profile
+--------------------
+Plan hash value: 2577653951
+
+--------------------------------------------------------------------------------
+------------------
+| Id  | Operation                    | Name              | Rows  | Bytes | Cost
+(%CPU)| Time     |
+--------------------------------------------------------------------------------
+------------------
+|   0 | SELECT STATEMENT             |                   |     1 |   101 |     3
+ (100)| 00:00:01 |
+|   1 |  SORT UNIQUE                 |                   |     1 |   101 |     2
+
+ (100)| 00:00:01 |
+|*  2 |   HASH JOIN                  |                   |     2 |   202 |     1
+ (100)| 00:00:01 |
+|   3 |    NESTED LOOPS              |                   |     2 |   122 |     0
+   (0)| 00:00:01 |
+|   4 |     NESTED LOOPS             |                   |     2 |   114 |     0
+   (0)| 00:00:01 |
+|   5 |      NESTED LOOPS            |                   |     2 |    98 |     0
+   (0)| 00:00:01 |
+|   6 |       MERGE JOIN CARTESIAN   |                   |     1 |    33 |     0
+   (0)| 00:00:01 |
+|   7 |        MERGE JOIN CARTESIAN  |                   |     1 |    11 |     0
+   (0)| 00:00:01 |
+
+|   8 |         FIXED TABLE FULL     | X$QUIESCE         |     1 |       |     0
+   (0)| 00:00:01 |
+|   9 |         BUFFER SORT          |                   |     1 |    11 |     0
+   (0)| 00:00:01 |
+|* 10 |          FIXED TABLE FULL    | X$KVIT            |     1 |    11 |     0
+   (0)| 00:00:01 |
+|  11 |        BUFFER SORT           |                   |     1 |    22 |     0
+   (0)| 00:00:01 |
+|* 12 |         FIXED TABLE FULL     | X$KSUXSINST       |     1 |    22 |     0
+   (0)| 00:00:01 |
+|* 13 |       FIXED TABLE FIXED INDEX| X$KSUSE (ind:1)   |     4 |    64 |     0
+   (0)| 00:00:01 |
+|* 14 |      FIXED TABLE FIXED INDEX | X$KSLWT (ind:1)   |     1 |     8 |     0
+
+   (0)| 00:00:01 |
+|* 15 |     FIXED TABLE FIXED INDEX  | X$KSLED (ind:2)   |     1 |     4 |     0
+   (0)| 00:00:01 |
+|  16 |    FIXED TABLE FULL          | X$KGLCURSOR_CHILD |   100 |  4000 |     0
+   (0)| 00:00:01 |
+--------------------------------------------------------------------------------
+------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - access("KGLHDPAR"="S"."KSUSESQL")
+  10 - filter("KVITTAG"='kcbwst')
+
+  12 - filter("KS"."INST_ID"=1)
+  13 - filter("S"."INDX"=142 AND BITAND("S"."KSUSEFLG",1)<>0 AND "S"."INST_ID"=1
+ AND
+              BITAND("S"."KSSPAFLG",1)<>0)
+  14 - filter("W"."KSLWTSID"=142)
+  15 - filter("W"."KSLWTEVT"="E"."INDX")
+
+-------------------------------------------------------------------------------
+

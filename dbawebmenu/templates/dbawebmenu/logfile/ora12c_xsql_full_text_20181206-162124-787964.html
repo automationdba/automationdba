@@ -1,0 +1,115 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+
+<meta name="generator" content="Oracle Database sqlplus output">
+
+<TITLE> Database Report </TITLE>
+
+<style>
+
+table {
+
+font-family : Century Gothic, Trebuchet MS, verdana, arial, sans-serif;
+
+font-size:14px;
+
+color:#333366;
+
+text-align:auto;
+
+width:auto;
+
+align:auto;
+
+border-width: 1px;
+
+border-color: #a9c6c9;
+
+border-collapse: collapse;
+
+}
+
+table th {
+
+border-width: 1px;
+
+background-color:#d4e3e5;
+
+padding: 8px;
+
+border-style: solid;
+
+border-color: #a9c6c9;
+
+}
+
+table td {
+
+border-width: 1px;
+
+padding: 8px;
+
+border-style: solid;
+
+border-color: #a9c6c9;
+
+}
+
+</style>
+
+</head>
+
+<br>
++------------------------------------------+
+<br>
+SQL Text of 14puzt7db5fz4 from Cursor Cache
+<br>
++------------------------------------------+
+<br>
+
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+SQL_FULLTEXT
+</th>
+</tr>
+<tr>
+<td>
+select	distinct a.inst_id inst,a.sql_id sqlid,a.hash_value hash,a.address addr,c.instance_name inst_name,c.host_name host,c.instance_role inst_role
+
+from gv$sql a,gv$session b,gv$instance c
+
+where b.
+inst_id = c.inst_id
+
+and a.address = b.sql_address
+
+and b.inst_id = 	 1
+
+and b.sid =	   142
+
+order by a.inst_id
+</td>
+</tr>
+</table>
+<p>
+
+
+<br>
++------------------------------------------+
+<br>
+SQL Text of 14puzt7db5fz4 from History
+<br>
++------------------------------------------+
+<br>
+
+<br>
+
+no rows selected
+
+<br>

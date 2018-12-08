@@ -22,6 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 # Read secret key from a file
 
+ 
 SECRET_KEY = 'yd2%u(d=5oxopw2$zdsc@lb(fk=ghc#-_be=r&s7o)bgc41l(2'
  
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -136,7 +137,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'admin123',
+        'PASSWORD': ' ',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
