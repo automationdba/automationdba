@@ -341,9 +341,13 @@ def dbamenuviewreport(request):
     db_tns=request.GET["db_tns"]
     if username=="":
        message="Inavalid Username "+username
-       return HttpResponse("Invalid !! "+message)
+       return HttpResponse("Error !! "+message)
     else:
-       dbstring=db_user_credentials(username,db_tns)
+       if tnsping_check(db_tns) == 0:
+         dbstring=db_user_credentials(username,db_tns)
+       else:
+         message="Invalid tns/db connection string  "+db_tns   
+         return HttpResponse("Error !! "+message)
 
     
     if  "1" in request.GET: 
@@ -371,8 +375,12 @@ def dbamenuviewreport(request):
                 os.remove(sql_file_path)
             except OSError:
                 pass    
-            
-            return render(request,LOGFILE_FULL_PATH)
+
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH) 
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message)
 
     elif "2" in request.GET:  
             sql_file="xsid_rac"
@@ -400,9 +408,13 @@ def dbamenuviewreport(request):
             try:
                 os.remove(sql_file_path)
             except OSError:
-                pass    
-            
-            return render(request,LOGFILE_FULL_PATH)
+                pass 
+
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH) 
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message)
 			
     elif "3" in request.GET:
             sql_file="xsql_id_details"
@@ -429,8 +441,12 @@ def dbamenuviewreport(request):
                 os.remove(sql_file_path)
             except OSError:
                 pass    
-            
-            return render(request,LOGFILE_FULL_PATH) 
+                   
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH) 
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message)
             
     elif "4" in request.GET:  
             sql_file="xlong_qry_tune"
@@ -457,8 +473,12 @@ def dbamenuviewreport(request):
                 os.remove(sql_file_path)
             except OSError:
                 pass    
-            
-            return render(request,LOGFILE_FULL_PATH)  
+                   
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH) 
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message)
 
     elif "5" in request.GET:
             sql_file="xsql_advisor_v1101"
@@ -487,10 +507,14 @@ def dbamenuviewreport(request):
                 os.remove(sql_file_path)
             except OSError:
                 pass    
-            
-            #return render(request,LOGFILE_FULL_PATH)    
-            return render(request,LOGFILE_TEXT_PATH,content_type="text")    
-            #content_type="text/plain"
+                
+            if os.path.isfile(LOGFILE_TEXT_PATH):
+               return render(request,LOGFILE_TEXT_PATH,content_type="text")  
+            elif os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH,content_type="text")  
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message)
 
     elif "6" in request.GET:
             sql_file="xsql_full_text"
@@ -518,7 +542,11 @@ def dbamenuviewreport(request):
             except OSError:
                 pass    
             
-            return render(request,LOGFILE_FULL_PATH)   
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)  
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message)
             
     elif "7" in request.GET:  
             sql_file="xstale_stat_sqlid"
@@ -545,8 +573,13 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass
-            return render(request,LOGFILE_FULL_PATH)
-    
+
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)  
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message)
+           
     elif "8" in request.GET:  
             sql_file="xsess_kill"
             sql_file_path= SQL_FILE_DIR + sql_file +'.sql'
@@ -570,9 +603,14 @@ def dbamenuviewreport(request):
             try:
                os.remove(sql_file_path)
             except OSError:
-               pass   
-            return render(request,LOGFILE_FULL_PATH)
-		
+               pass  
+                
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)  
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message)
+           
     elif "9" in request.GET:  
             sql_file="new_ashrpti"
             (SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring) = db_query_location_path(sql_file,username,db_tns)
@@ -662,7 +700,12 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass  
-            return render(request,LOGFILE_FULL_PATH)
+            
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
 
     elif "12" in request.GET:  
             sql_file="xtable_stats"
@@ -690,8 +733,13 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass  
-            return render(request,LOGFILE_FULL_PATH)
-			
+
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
+
     elif "13" in request.GET:
             sql_file = "xsystemevent"   # previous option k_sqldiag_REC11.sh
             sql_file_path= SQL_FILE_DIR + sql_file +'.sql'
@@ -716,8 +764,12 @@ def dbamenuviewreport(request):
             except OSError:
                 pass    
             
-            return render(request,LOGFILE_FULL_PATH) 
-            
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
+
     elif "14" in request.GET:  
             sql_file="xtop_cpu"
             sql_file_path= SQL_FILE_DIR + sql_file +'.sql'
@@ -742,8 +794,12 @@ def dbamenuviewreport(request):
             except OSError:
                 pass    
             
-            return render(request,LOGFILE_FULL_PATH) 
-	
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
+
     elif "15" in request.GET:  
             sql_file="xblockers_rac"
             sql_file_path= SQL_FILE_DIR + sql_file +'.sql'
@@ -768,8 +824,12 @@ def dbamenuviewreport(request):
             except OSError:
                 pass    
             
-            return render(request,LOGFILE_FULL_PATH)  
-	
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
+
     elif "16" in request.GET:  
             sql_file="xlatch_wait_rac"
             sql_file_path= SQL_FILE_DIR + sql_file +'.sql'
@@ -793,8 +853,13 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass
-            return render(request,LOGFILE_FULL_PATH)
-	
+
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
+
     elif "17" in request.GET:
             sql_file="xshow_sess_usr_hist_top_io"
             sql_file_path= SQL_FILE_DIR + sql_file +'.sql'
@@ -827,9 +892,12 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass  
-            return render(request,LOGFILE_FULL_PATH)  
             
-    
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
 
     elif "18" in request.GET:
             sql_file="xshow_hist_top_cpu_usage"
@@ -863,7 +931,12 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass  
-            return render(request,LOGFILE_FULL_PATH)  
+
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
 
     elif "19" in request.GET:  
             sql_file="xshow_hist_top_obj_wait"
@@ -898,8 +971,13 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass  
-            return render(request,LOGFILE_FULL_PATH)  
-	
+
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
+
     elif "20" in request.GET:    
           #    sql_file="xshow_sess_hist_wait_blocked" #  Only blocked or waited
             sql_file="xshow_sess_hist_wait_blocked"
@@ -937,8 +1015,13 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass
-            return render(request,LOGFILE_FULL_PATH) 
-	
+            
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
+
     elif "21" in request.GET:  
              #    sql_file="xshow_sess_hist_wait_blocked" #  ALL
             sql_file = "xshow_sess_hist_wait_all" 
@@ -978,7 +1061,12 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass 
-            return render(request,LOGFILE_FULL_PATH)  
+
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
 
 	
     elif  "22" in request.GET: 
@@ -1019,8 +1107,13 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass
-            return render(request,LOGFILE_FULL_PATH) 	
-	
+            
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
+
     elif "23" in request.GET:  
             sql_file="xshow_qry_sess_run_time"
  
@@ -1058,8 +1151,13 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass
-            return render(request,LOGFILE_FULL_PATH) 	
-	
+            
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
+
     elif "24" in request.GET:
             sql_file="xqry_addm_all"
             sql_file_path= SQL_FILE_DIR + sql_file +'.sql'
@@ -1092,8 +1190,13 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass  
-            return render(request,LOGFILE_FULL_PATH)  
-			
+            
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
+
     elif "25" in request.GET:  
             sql_file="xarch_log_hist_qry"
             sql_file_path= SQL_FILE_DIR + sql_file +'.sql'
@@ -1116,7 +1219,12 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass  
-            return render(request,LOGFILE_FULL_PATH)   
+            
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
 
     elif  "26" in request.GET: 
             sql_file="xalert_qry"
@@ -1140,7 +1248,12 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass   
-            return render(request,LOGFILE_FULL_PATH) 			
+            
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
 
     elif "27" in request.GET:  
             if request.GET["awrsnaptype"] == "singlesnap":
@@ -1160,7 +1273,14 @@ def dbamenuviewreport(request):
             OUTPUT_FILE_NAME=os.path.dirname(LOGFILE_FULL_PATH)+"/awr_rpt_"+os.path.basename(LOGFILE_FULL_PATH)
             arglist.append(OUTPUT_FILE_NAME)
             exec_db_qry_local_html_list(SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring,arglist)
-            return render(request,OUTPUT_FILE_NAME) 
+
+            if os.path.isfile(OUTPUT_FILE_NAME):
+               return render(request,OUTPUT_FILE_NAME)
+            elif os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
 
     elif "28" in request.GET:
             sql_file="xsortspace"
@@ -1184,16 +1304,18 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass  
-            return render(request,LOGFILE_FULL_PATH)  
-
+            
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
 
     elif "29" in request.GET:  
             sql_file="xshowsessions_active"
-             
             arg1=request.GET["29_1_option"]
             if  arg1==request.GET["29_1_option"] == "":
                     arg1='%'
-             
             sql_file_path= SQL_FILE_DIR + sql_file +'.sql'
             try:
                os.remove(sql_file_path)
@@ -1217,7 +1339,11 @@ def dbamenuviewreport(request):
             except OSError:
                 pass    
             
-            return render(request,LOGFILE_FULL_PATH)
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
 
     elif  "30" in request.GET: 
             sql_file="xrac_long_run_txn"
@@ -1243,7 +1369,11 @@ def dbamenuviewreport(request):
             except OSError:
                 pass    
             
-            return render(request,LOGFILE_FULL_PATH) 
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
         
     elif "31" in request.GET:
             sql_file="xall_sess_db"
@@ -1269,7 +1399,11 @@ def dbamenuviewreport(request):
             except OSError:
                 pass    
             
-            return render(request,LOGFILE_FULL_PATH)   
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
             
     elif "32" in request.GET:  
             sql_file="xlong_open_trans"
@@ -1293,7 +1427,12 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass  
-            return render(request,LOGFILE_FULL_PATH)  
+
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
 			
     elif "33" in request.GET:  
             sql_file="xtbs_free_autoextend"
@@ -1320,9 +1459,12 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass 
-            return render(request,LOGFILE_FULL_PATH)   
 
-    
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
             
     elif "35" in request.GET:  
             sql_file="xundo_details"
@@ -1346,7 +1488,12 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass   
-            return render(request,LOGFILE_FULL_PATH)	
+
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
 	
     elif "36" in request.GET:
             sql_file="xasm_diskgroups"
@@ -1370,8 +1517,13 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass 
-            return render(request,LOGFILE_FULL_PATH)  
             
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
+
     elif "37" in request.GET:  
             sql_file="xasm_disks_perf"
             sql_file_path= SQL_FILE_DIR + sql_file +'.sql'
@@ -1394,7 +1546,12 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass 
-            return render(request,LOGFILE_FULL_PATH)
+
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
      
             
     elif "38" in request.GET:
@@ -1419,7 +1576,12 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass  
-            return render(request,LOGFILE_FULL_PATH)  
+
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
             
     elif "39" in request.GET:  
             sql_file="xdb_service_all"
@@ -1443,7 +1605,12 @@ def dbamenuviewreport(request):
                os.remove(sql_file_path)
             except OSError:
                pass 
-            return render(request,LOGFILE_FULL_PATH) 
+
+            if os.path.isfile(LOGFILE_FULL_PATH):
+               return render(request,LOGFILE_FULL_PATH)
+            else:
+               message = "Something wrong while executing query file " +sql_file
+               return HttpResponse(message) 
 
     elif "40" in request.GET:  
             from django.conf import settings
@@ -1465,7 +1632,11 @@ def dbamenuviewreport(request):
                 arglist=[]  
                 arglist.append(request.GET["99_1_option"])
                 exec_db_qry_local_html_list(SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring,arglist) 
-                return render(request,LOGFILE_FULL_PATH)  
+                if os.path.isfile(LOGFILE_FULL_PATH):
+                   return render(request,LOGFILE_FULL_PATH)
+                else:
+                   message = "Something wrong while executing query file " +sql_file
+                   return HttpResponse(message) 
 
             elif request.GET["sqltype"] == "PLANHIST":
                 sql_file="sql_plan_changes_apps"  
@@ -1473,92 +1644,154 @@ def dbamenuviewreport(request):
                 arglist=[]  
                 arglist.append(request.GET["99_1_option"])
                 exec_db_qry_local_html_list(SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring,arglist) 
-                return render(request,LOGFILE_FULL_PATH)  
-                                  
+                if os.path.isfile(LOGFILE_FULL_PATH):
+                   return render(request,LOGFILE_FULL_PATH)
+                else:
+                   message = "Something wrong while executing query file " +sql_file
+                   return HttpResponse(message) 
+                  
             elif request.GET["sqltype"] == "QRYTXT":
                 sql_file="sql_full_text_apps"  
                 (SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring) = db_query_location_path(sql_file,username,db_tns)
                 arglist=[]  
                 arglist.append(request.GET["99_1_option"])
                 exec_db_qry_local_html_list(SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring,arglist) 
-                return render(request,LOGFILE_FULL_PATH)      
-                         
+                if os.path.isfile(LOGFILE_FULL_PATH):
+                   return render(request,LOGFILE_FULL_PATH)
+                else:
+                   message = "Something wrong while executing query file " +sql_file
+                   return HttpResponse(message) 
+         
             elif request.GET["sqltype"] == "SQLIDSESS":
                 sql_file="showsessions_ops_usr"  
                 (SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring) = db_query_location_path(sql_file,username,db_tns)
                 arglist=[]  
                 arglist.append(request.GET["99_1_option"])
                 exec_db_qry_local_html_list(SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring,arglist) 
-                return render(request,LOGFILE_FULL_PATH) 
-
+                if os.path.isfile(LOGFILE_FULL_PATH):
+                   return render(request,LOGFILE_FULL_PATH)
+                else:
+                   message = "Something wrong while executing query file " +sql_file
+                   return HttpResponse(message) 
+         
             elif request.GET["sqltype"] == "STALESTATS":
                 sql_file="stale_stat_sqlid"  
                 (SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring) = db_query_location_path(sql_file,username,db_tns)
                 arglist=[]  
                 arglist.append(request.GET["99_1_option"])
                 exec_db_qry_local_html_list(SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring,arglist) 
-                return render(request,LOGFILE_FULL_PATH)    
-
+                if os.path.isfile(LOGFILE_FULL_PATH):
+                   return render(request,LOGFILE_FULL_PATH)
+                else:
+                   message = "Something wrong while executing query file " +sql_file
+                   return HttpResponse(message) 
+         
             elif request.GET["sqltype"] == "CUREXPLN":
                 sql_file="xplan_sqlid"  
                 (SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring) = db_query_location_path(sql_file,username,db_tns)
                 arglist=[]  
                 arglist.append(request.GET["99_1_option"])
                 exec_db_qry_local_html_list(SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring,arglist) 
-                return render(request,LOGFILE_FULL_PATH)  
-
+                if os.path.isfile(LOGFILE_FULL_PATH):
+                   return render(request,LOGFILE_FULL_PATH)
+                else:
+                   message = "Something wrong while executing query file " +sql_file
+                   return HttpResponse(message) 
+         
             elif request.GET["sqltype"] == "BINDHIST":
                 sql_file="qry_bind_val"  
                 (SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring) = db_query_location_path(sql_file,username,db_tns)
                 arglist=[]  
                 arglist.append(request.GET["99_1_option"])
                 exec_db_qry_local_html_list(SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring,arglist) 
-                return render(request,LOGFILE_FULL_PATH)   
-
+                if os.path.isfile(LOGFILE_FULL_PATH):
+                   return render(request,LOGFILE_FULL_PATH)
+                else:
+                   message = "Something wrong while executing query file " +sql_file
+                   return HttpResponse(message) 
+         
             elif request.GET["sqltype"] == "CHGSQLID":
                 sql_file="change_sqlid"  
                 (SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring) = db_query_location_path(sql_file,username,db_tns)
                 arglist=[]  
                 arglist.append(request.GET["99_1_option"])
                 exec_db_qry_local_html_list(SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring,arglist) 
-                return render(request,LOGFILE_FULL_PATH)   
-
+                if os.path.isfile(LOGFILE_FULL_PATH):
+                   return render(request,LOGFILE_FULL_PATH)
+                else:
+                   message = "Something wrong while executing query file " +sql_file
+                   return HttpResponse(message) 
+         
             elif request.GET["sqltype"] == "SPMCHECK":
                 sql_file="spm_created_hist"  
                 (SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring) = db_query_location_path(sql_file,username,db_tns)
                 arglist=[]  
                 arglist.append(request.GET["99_1_option"])
                 exec_db_qry_local_html_list(SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring,arglist) 
-                return render(request,LOGFILE_FULL_PATH)  
-            
+                if os.path.isfile(LOGFILE_FULL_PATH):
+                   return render(request,LOGFILE_FULL_PATH)
+                else:
+                   message = "Something wrong while executing query file " +sql_file
+                   return HttpResponse(message) 
+         
             elif request.GET["sqltype"] == "CHECKPINPLAN":
                 sql_file="qry_execution_time_check" 
                 (SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring) = db_query_location_path(sql_file,username,db_tns)
                 arglist=[]  
                 arglist.append(request.GET["99_1_option"])
                 exec_db_qry_local_html_list(SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring,arglist) 
-                return render(request,LOGFILE_FULL_PATH)    
-
+                if os.path.isfile(LOGFILE_FULL_PATH):
+                   return render(request,LOGFILE_FULL_PATH)
+                else:
+                   message = "Something wrong while executing query file " +sql_file
+                   return HttpResponse(message) 
+         
             elif request.GET["sqltype"] == "FLUSHPLAN":
                 sql_file="flush_plan_sess_kill"  
                 (SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring) = db_query_location_path(sql_file,username,db_tns)
                 arglist=[]  
                 arglist.append(request.GET["99_1_option"])
                 exec_db_qry_local_html_list(SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring,arglist) 
-                return render(request,LOGFILE_FULL_PATH)   
-                               
+                if os.path.isfile(LOGFILE_FULL_PATH):
+                   return render(request,LOGFILE_FULL_PATH)
+                else:
+                   message = "Something wrong while executing query file " +sql_file
+                   return HttpResponse(message) 
+                        
             elif request.GET["sqltype"] == "ADDMCHECK":
                 sql_file="qry_addm_sqlid"  
                 (SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring) = db_query_location_path(sql_file,username,db_tns)
                 arglist=[]  
                 arglist.append(request.GET["99_1_option"])
                 exec_db_qry_local_html_list(SQLFILE_FULL_PATH,LOGFILE_FULL_PATH,dbstring,arglist) 
-                return render(request,LOGFILE_FULL_PATH)                   
-  		
+                if os.path.isfile(LOGFILE_FULL_PATH):
+                   return render(request,LOGFILE_FULL_PATH)
+                else:
+                   message = "Something wrong while executing query file " +sql_file
+                   return HttpResponse(message) 
+         
 
 ## end of dbamenu detail query view
 
 # sql plus execution related view  
+
+# check tnsping status for db connection
+def tnsping_check(tns_name=None):
+   session = Popen(['tnsping',tns_name], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+   flg=0
+   try:
+      (stdout,stderr) = session.communicate(timeout=10)
+   except subprocess.TimeoutExpired:
+      flg=-1
+      return flg
+   stdout_lines=stdout.splitlines()
+   for line in stdout_lines:
+      str = (line.decode('utf-8'))
+      if ((str.find('TNS-03505')) == 0):
+         flg=-1
+   return flg            
+#
+
 def exec_db_qry_local_html_list(sqlqueryfile,htmllogfile,dbstring,arglist):
         sql_file = sqlqueryfile
         NOW=time.strftime('%C%y%m%d-%H%M%S')
@@ -1633,6 +1866,11 @@ def logoutview(request):
 
 # Validate database authentication
 def db_conn_user_check(username=None,password=None,tns_name=None):
+
+   if username=="":
+       message="Inavalid Username "+username
+       return HttpResponse("Invalid !! "+message)
+   
    conn_string = " %s/%s@%s "% (username,password,tns_name)
    sql_file = "db_conn_check_apps"
    session = Popen(['sqlplus','-L', conn_string, '@'+sql_file ],stdin=PIPE, stdout=PIPE, stderr=PIPE)
