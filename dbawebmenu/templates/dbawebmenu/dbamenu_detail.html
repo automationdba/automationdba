@@ -208,9 +208,10 @@ padding: 5px; width: 100%;">
 font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; 
 padding: 5px; width: 100%;">
       Input  : None 
-      Output : Latch wait event
+      Output : Tablespace free space details
       Usages :
-             Internal locking/latches related wait event report
+             All tablespace  used,free space, %free  details
+             Tablespace max free space consider autoextend datafile information 
 </pre><br>
 
 {% elif dbamenu.task_number == 17 %}
@@ -269,10 +270,11 @@ padding: 5px; width: 100%;">
 <pre class="prettyprint" style="background-color: #e6e6e6; border: 1px dashed #999999; color: black; 
 font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; 
 padding: 5px; width: 100%;">
-      Input  : sql query history 
-      Output : sql query history
+      Input  : sql query history details
+      Output : sql query history details
       Usages :
-            Privde sql query report  
+            sql execution history includes user and session details
+            Also object name, wait event details, wait time and blocking session information  
 </pre><br>
 
 {% elif dbamenu.task_number == 23 %}
@@ -282,7 +284,7 @@ padding: 5px; width: 100%;">
       Input  : sql query history 
       Output : sql query history
       Usages :
-            Privde sql query report  
+            sql execution history includes execution id and start/end time  and total execution time
 </pre><br>
 
 {% elif dbamenu.task_number == 24 %}
@@ -302,9 +304,11 @@ padding: 5px; width: 100%;">
      Input  : None
      Output : Archive generation report
      Usages :
-          Check archive gap statistics
+          Archive gap for data guard  
           Archive generation per hour details
-          Archive/Dataguard related error report 
+          Dataguard related error report 
+          Flash recovery area(FRA) current utilization include diskgroup space status
+          Any outstanding alert details
 </pre><br>
 
 {% elif dbamenu.task_number == 26 %}
@@ -388,6 +392,18 @@ padding: 5px; width: 100%;">
             ASM diskgroup status (if exist)            
 </pre><br>  
 
+{% elif dbamenu.task_number == 34 %}
+<pre class="prettyprint" style="background-color: #e6e6e6; border: 1px dashed #999999; color: black; 
+font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 12px; line-height: 14px; overflow: auto; 
+padding: 5px; width: 100%;">
+     Input  : Instance id, begin and end snap, wait class, wait event sqlid
+     Output : List of sql id whose wait class is same 
+     Usages :
+            This report provide tablespace specific free and used space information
+            Also provide tablespace growth details
+            tablespace related all datafile status
+            ASM diskgroup status (if exist)            
+</pre><br>  
 
 {% elif dbamenu.task_number == 35 %}
 <pre class="prettyprint" style="background-color: #e6e6e6; border: 1px dashed #999999; color: black; 
@@ -396,8 +412,9 @@ padding: 5px; width: 100%;">
      Input  : None
      Output : Undo tablespace utilization details
      Usages :
-            This report provide information regarding undo tablespace 
-            Also provide list of undo space utilized  session details
+            All undo tablespace free and usaged space details
+            undo utilized current sessoin details
+            undo recovery session information
 </pre><br> 
 
 {% elif dbamenu.task_number == 36 %}
@@ -407,7 +424,7 @@ padding: 5px; width: 100%;">
      Input  : None
      Output : ASM disk details
      Usages :
-            ASM all disk free and utilizd space details  
+            ASM all disk free and used space information  
 </pre><br>
 
 {% elif dbamenu.task_number == 37 %}
@@ -417,7 +434,7 @@ padding: 5px; width: 100%;">
      Input  : None
      Output : ASM Disk performance details
      Usages :
-     All ASM disk read/write usage statistics  
+            All ASM disk read/write usage statistics  
 </pre><br>			
 			
 {% elif dbamenu.task_number == 38 %}
@@ -427,7 +444,7 @@ padding: 5px; width: 100%;">
      Input  : None
      Output : RMAN Backup inclue exectuion command history
      Usages :
-           Provide details regarding rman backup
+           rman backup histroy and current running backup details
            Also, output of last execution rman command details 
 </pre><br> 
 	  
@@ -438,8 +455,8 @@ padding: 5px; width: 100%;">
      Input  : None
      Output : Database service details
      Usages :
-            Provide details regarding table stats includes partition details
-            Also, provide index level stats details  
+            Database services include db time/second
+            Failover method and type of service details
 </pre><br> 
 
 

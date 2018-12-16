@@ -88,7 +88,7 @@ def Dbamenuviewsample(request):
     elif  "15" in request.GET:
         return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xblockers_rac_sample.html')        
     elif  "16" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xlatch_wait_rac_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//rac11_xtblspace_all_free_sample.html')
     elif  "17" in request.GET:
         return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xshow_hist_top_io_wait_sample.html')
     elif  "18" in request.GET:
@@ -106,7 +106,7 @@ def Dbamenuviewsample(request):
     elif  "24" in request.GET:
         return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xqry_addm_all_sample.html')
     elif  "25" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xarch_log_hist_qry_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//rac11_xarch_log_hist_sample.html')
     elif  "26" in request.GET:
         return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xalert_qry_sample.html')	
     elif  "27" in request.GET:
@@ -122,17 +122,17 @@ def Dbamenuviewsample(request):
     elif  "32" in request.GET:
         return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xlong_open_trans_sample.html')
     elif  "33" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xtbs_free_autoextend_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//rac11_xtbs_free_autoextend_sample.html')
     elif  "34" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xtbs_free_autoextend_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//rac11_hist_snap_id_1_sample.html')
     elif  "35" in request.GET:
         return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xundo_details_sample.html')
     elif  "36" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xasm_diskgroups_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//rac11_xasm_diskgroups_sample.html')
     elif  "37" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xasm_disks_perf_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//rac11_xasm_disks_perf_sample.html')
     elif  "38" in request.GET:
-        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xrman_details_sample.html')
+        return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//rac11_xrman_details_sample.html')
     elif  "39" in request.GET:
         return render(request, settings.BASE_DIR + '/dbawebmenu/templates/dbawebmenu/sample_logfile//ora12c_xdb_service_all_sample.html')
     elif  "40" in request.GET:
@@ -211,7 +211,12 @@ def viewlogfilenames(request):
 # AWR report related views for getting awr snapid
 def dbamenugetawrsnapid(request):
     global gusername
-    username=gusername
+     
+    try:
+       username=gusername
+    except: 
+       message="username not exist"
+       return HttpResponse("Invalid !! "+message)
     db_tns=request.GET["db_tns"]
     sql_file="hist_snap_id"
     dbstring=db_user_credentials(username,db_tns)
@@ -225,7 +230,12 @@ def dbamenugetawrsnapid(request):
 # Get instance details
 def dbamenugetinst(request):
     global gusername
-    username=gusername
+     
+    try:
+       username=gusername
+    except: 
+       message="username not exist"
+       return HttpResponse("Invalid !! "+message)
      
     db_tns=request.GET["db_tns"]
     sql_file="inst_details"
@@ -238,7 +248,12 @@ def dbamenugetinst(request):
 # Get snap details
 def dbamenu34snapdetail(request):
     global gusername
-    username=gusername
+     
+    try:
+       username=gusername
+    except: 
+       message="username not exist"
+       return HttpResponse("Invalid !! "+message)
     db_tns=request.GET["db_tns"]
     sql_file="hist_snap_id_1"
     dbstring=db_user_credentials(username,db_tns)
@@ -252,7 +267,12 @@ def dbamenu34snapdetail(request):
 # Get wait class details     
 def dbamenu34waitclassdetail(request):
     global gusername
-    username=gusername
+     
+    try:
+       username=gusername
+    except: 
+       message="username not exist"
+       return HttpResponse("Invalid !! "+message)
     db_tns=request.GET["db_tns"]
     sql_file="1_wait_class"
     dbstring=db_user_credentials(username,db_tns)
@@ -270,7 +290,12 @@ def dbamenu34waitclassdetail(request):
 # Get wait event details
 def dbamenu34waiteventdetail(request):
     global gusername
-    username=gusername
+     
+    try:
+       username=gusername
+    except: 
+       message="username not exist"
+       return HttpResponse("Invalid !! "+message)
     db_tns=request.GET["db_tns"]
     sql_file="2_wait_class_events_q"
     dbstring=db_user_credentials(username,db_tns)
@@ -290,7 +315,12 @@ def dbamenu34waiteventdetail(request):
 # Get wait event query details
 def dbamenu34waiteventsqldetail(request):
     global gusername
-    username=gusername
+     
+    try:
+       username=gusername
+    except: 
+       message="username not exist"
+       return HttpResponse("Invalid !! "+message)
     db_tns=request.GET["db_tns"]
     sql_file="3_event_sql_id"
     dbstring=db_user_credentials(username,db_tns)
@@ -310,7 +340,12 @@ def dbamenu34waiteventsqldetail(request):
 # Get query explain plan
 def dbamenu34sqlplan(request):
     global gusername
-    username=gusername 
+     
+    try:
+       username=gusername
+    except: 
+       message="username not exist"
+       return HttpResponse("Invalid !! "+message)
     db_tns=request.GET["db_tns"]
     sql_file="4_sqltext"
     dbstring=db_user_credentials(username,db_tns)
@@ -831,7 +866,7 @@ def dbamenuviewreport(request):
                return HttpResponse(message) 
 
     elif "16" in request.GET:  
-            sql_file="xlatch_wait_rac"
+            sql_file="xtblspace_all_free"
             sql_file_path= SQL_FILE_DIR + sql_file +'.sql'
             try:
                os.remove(sql_file_path)
